@@ -21,7 +21,7 @@ void close_elf(int elf);
  * check_elf - Checks if a file is an ELF file.
  * @e_ident: A pointer to an array containing the ELF magic numbers.
  *
- * Description: If the file is not an ELF file, exit with status code 98
+ * Description: If the file is not an ELF file - exit code 98.
  */
 void check_elf(unsigned char *e_ident)
 {
@@ -50,14 +50,14 @@ void print_magic(unsigned char *e_ident)
 {
 	int index;
 
-	printf("  Magic:   ");
+	printf(" Magic: ");
 
 	for (index = 0; index < EI_NIDENT; index++)
 	{
 		printf("%02x", e_ident[index]);
 
 		if (index == EI_NIDENT - 1)
-		I	printf("\n");
+			printf("\n");
 		else
 			printf(" ");
 	}
@@ -69,7 +69,7 @@ void print_magic(unsigned char *e_ident)
  */
 void print_class(unsigned char *e_ident)
 {
-	printf("  ClaSS:   ");
+	printf(" Class: ");
 
 	switch (e_ident[EI_CLASS])
 	{
@@ -112,13 +112,13 @@ void print_data(unsigned char *e_ident)
 }
 
 /**
- * print_version - Prints the version of an ELF header.
- * @e_ident: A pointer to an array containing the ELF version.
- */
+ *  * print_version - Prints the version of an ELF header.
+ *   * @e_ident: A pointer to an array containing the ELF version.
+ *    */
 void print_version(unsigned char *e_ident)
 {
-	printf("  Version: %d"
-	       e_ident[EI_VERSION]);
+	 printf(" Version: %d",
+			  e_ident[EI_VERSION]);
 
 	switch (e_ident[EI_VERSION])
 	{
@@ -183,7 +183,7 @@ void print_osabi(unsigned char *e_ident)
 void print_abi(unsigned char *e_ident)
 {
 	printf(" ABI Version: %d\n",
-	       e_ident[EI_ABIVERSION]);
+		e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -261,14 +261,14 @@ void close_elf(int elf)
 
 /**
  * main - Displays the information contained in the
- *        ELF header at the start of an ELF file.
+ * ELF header at the start of an ELF file.
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
  *
  * Return: 0 on success.
  *
  * Description: If the file is not an ELF File or
- *              the function fails - exit code 98.
+ * the function fails - exit code 98.
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
